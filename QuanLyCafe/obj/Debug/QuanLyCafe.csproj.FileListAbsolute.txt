@@ -1,0 +1,15 @@
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\QuanLyCafe.exe.config
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\QuanLyCafe.exe
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\QuanLyCafe.pdb
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\BLL.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\BLL.pdb
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.Properties.Resources.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.csproj.GenerateResource.Cache
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.csproj.CoreCompileInputs.cache
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.exe
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.pdb
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.flogin.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.Fmain.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\DAL.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\DAL.pdb

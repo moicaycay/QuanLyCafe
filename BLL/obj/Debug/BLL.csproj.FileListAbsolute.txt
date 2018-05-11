@@ -1,0 +1,8 @@
+F:\Documents\GitHub\QuanLyCafe\BLL\bin\Debug\BLL.dll
+F:\Documents\GitHub\QuanLyCafe\BLL\bin\Debug\BLL.pdb
+F:\Documents\GitHub\QuanLyCafe\BLL\bin\Debug\DAL.dll
+F:\Documents\GitHub\QuanLyCafe\BLL\bin\Debug\DAL.pdb
+F:\Documents\GitHub\QuanLyCafe\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\QuanLyCafe\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\Documents\GitHub\QuanLyCafe\BLL\obj\Debug\BLL.dll
+F:\Documents\GitHub\QuanLyCafe\BLL\obj\Debug\BLL.pdb
