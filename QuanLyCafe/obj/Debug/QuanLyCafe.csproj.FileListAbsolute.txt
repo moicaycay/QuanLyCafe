@@ -13,3 +13,4 @@ F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.flogin.resources
 F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.Fmain.resources
 F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\DAL.dll
 F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\DAL.pdb
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.FChuyenBan.resources

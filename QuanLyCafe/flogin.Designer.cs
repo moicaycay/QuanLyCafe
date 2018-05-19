@@ -124,6 +124,7 @@
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Name = "flogin";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "flogin";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
