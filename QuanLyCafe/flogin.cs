@@ -37,7 +37,7 @@ namespace QuanLyCafe
 			}
 			if (id != "")
 			{
-				Fmain fmain = new Fmain();
+				Fmain fmain = new Fmain(cafebll.Select_Dangnhap(textBox1.Text, textBox2.Text).Rows[0][0].ToString());
 				fmain.Show();
 				this.Hide();
 

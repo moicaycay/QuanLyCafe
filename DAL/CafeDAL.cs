@@ -51,12 +51,12 @@ namespace DAL
 		{
 			return thaotac.SQL_Laydulieu("sl_Ban");
 		}
-		public int Insert_Bill(int maban)
+		public int Insert_Bill(int maban, string tk)
 		{
 			name = new string[2];
 			value = new object[2];
 			name[0] = "@maban"; value[0] = maban;
-			name[1] = "@timedathang"; value[1] = DateTime.Now;
+			name[1] = "@taikhoan"; value[1] =tk;
 			return thaotac.SQL_Thuchien("is_Bill", name, value, 2);
 		}
 		public int Insert_BillInfo(int mabill, int manuoc, int soluong)
@@ -72,21 +72,30 @@ namespace DAL
 		{
 			name = new string[2];
 			value = new object[2];
-			name[0] = "MaBan"; value[0] = maban;
-			name[1] = "TinhTrang"; value[1] = tinhtrang;
+			name[0] = "@MaBan"; value[0] = maban;
+			name[1] = "@TinhTrang"; value[1] = tinhtrang;
 			return thaotac.SQL_Thuchien("ud_TTBan", name, value, 2);
 		}
-		public int Thanhtoan_HD(int mabill)
+		public int Thanhtoan_HD(int mabill,float tien)
 		{
 			name = new string[2];
 			value = new object[2];
-			name[0] = "MaBill"; value[0] = mabill ;
-			name[1] = "TinhTrang"; value[1] = "True";
-			return thaotac.SQL_Thuchien("thanhtoan_HD", name, value, 2);
+			name[0] = "@MaBill"; value[0] = mabill ;
+			name[1] = "@tien"; value[1] = tien;
+			return thaotac.SQL_Thuchien("ud_BillThanhToan", name, value, 2);
 		}
 		public DataTable Select_Nuoc()
 		{
 			return thaotac.SQL_Laydulieu("sl_NuocUong");
+		}
+		public int Update_BillInfo(int id, int soluong)
+		{
+			name = new string[2];
+			value = new object[2];
+			name[0] = "@id"; value[0] = id;
+			
+			name[1] = "@soluong"; value[1] = soluong;
+			return thaotac.SQL_Thuchien("ud_BillInfo", name, value,2);
 		}
 	}
 }

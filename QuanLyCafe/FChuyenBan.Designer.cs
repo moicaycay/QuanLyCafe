@@ -37,20 +37,23 @@
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.dtgBan1 = new System.Windows.Forms.DataGridView();
-			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.dtgBan2 = new System.Windows.Forms.DataGridView();
-			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
+			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel5.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -154,37 +157,20 @@
 			this.dtgBan1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dtgBan1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dtgBan1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
+            this.Column6,
             this.Column7,
-            this.Column6});
+            this.Column8,
+            this.Column9,
+            this.Column10});
 			this.dtgBan1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dtgBan1.Location = new System.Drawing.Point(0, 0);
 			this.dtgBan1.Name = "dtgBan1";
 			this.dtgBan1.Size = new System.Drawing.Size(361, 356);
 			this.dtgBan1.TabIndex = 0;
 			// 
-			// Column5
-			// 
-			this.Column5.DataPropertyName = "Tên Nước";
-			this.Column5.HeaderText = "Tên Nước";
-			this.Column5.Name = "Column5";
-			// 
-			// Column7
-			// 
-			this.Column7.DataPropertyName = "Số lượng";
-			this.Column7.HeaderText = "Số lượng";
-			this.Column7.Name = "Column7";
-			// 
-			// Column6
-			// 
-			this.Column6.DataPropertyName = "Giá";
-			this.Column6.HeaderText = "Đơn giá";
-			this.Column6.Name = "Column6";
-			// 
 			// panel4
 			// 
 			this.panel4.Controls.Add(this.button3);
-			this.panel4.Controls.Add(this.button2);
 			this.panel4.Controls.Add(this.button1);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel4.Location = new System.Drawing.Point(370, 43);
@@ -194,26 +180,17 @@
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(8, 127);
+			this.button3.Location = new System.Drawing.Point(8, 158);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(28, 23);
 			this.button3.TabIndex = 2;
 			this.button3.Text = ">>";
 			this.button3.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.Location = new System.Drawing.Point(8, 156);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(28, 23);
-			this.button2.TabIndex = 1;
-			this.button2.Text = "<";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
+			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(8, 98);
+			this.button1.Location = new System.Drawing.Point(8, 129);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(28, 23);
 			this.button1.TabIndex = 0;
@@ -224,9 +201,11 @@
 			// dtgBan2
 			// 
 			this.dtgBan2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dtgBan2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.dtgBan2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dtgBan2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dtgBan2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
+            this.Column5,
             this.Column2,
             this.Column1,
             this.Column3});
@@ -235,21 +214,6 @@
 			this.dtgBan2.Name = "dtgBan2";
 			this.dtgBan2.Size = new System.Drawing.Size(362, 356);
 			this.dtgBan2.TabIndex = 5;
-			// 
-			// Column2
-			// 
-			this.Column2.HeaderText = "Tên Nước";
-			this.Column2.Name = "Column2";
-			// 
-			// Column1
-			// 
-			this.Column1.HeaderText = "Số lượng";
-			this.Column1.Name = "Column1";
-			// 
-			// Column3
-			// 
-			this.Column3.HeaderText = "Đơn Giá";
-			this.Column3.Name = "Column3";
 			// 
 			// panel2
 			// 
@@ -281,6 +245,68 @@
 			this.button4.Text = "Đồng ý";
 			this.button4.UseVisualStyleBackColor = true;
 			// 
+			// Column6
+			// 
+			this.Column6.DataPropertyName = "ID";
+			this.Column6.HeaderText = "ID";
+			this.Column6.Name = "Column6";
+			this.Column6.Visible = false;
+			// 
+			// Column7
+			// 
+			this.Column7.DataPropertyName = "Mã Nước";
+			this.Column7.HeaderText = "Mã Nước";
+			this.Column7.Name = "Column7";
+			// 
+			// Column8
+			// 
+			this.Column8.DataPropertyName = "Tên Nước";
+			this.Column8.HeaderText = "Tên Nước";
+			this.Column8.Name = "Column8";
+			// 
+			// Column9
+			// 
+			this.Column9.DataPropertyName = "Số lượng";
+			this.Column9.HeaderText = "Số lượng";
+			this.Column9.Name = "Column9";
+			// 
+			// Column10
+			// 
+			this.Column10.DataPropertyName = "Giá";
+			this.Column10.HeaderText = "Đơn giá";
+			this.Column10.Name = "Column10";
+			// 
+			// Column4
+			// 
+			this.Column4.DataPropertyName = "ID";
+			this.Column4.HeaderText = "ID";
+			this.Column4.Name = "Column4";
+			this.Column4.Visible = false;
+			// 
+			// Column5
+			// 
+			this.Column5.DataPropertyName = "Mã nước";
+			this.Column5.HeaderText = "Mã Nước";
+			this.Column5.Name = "Column5";
+			// 
+			// Column2
+			// 
+			this.Column2.DataPropertyName = "Tên nước";
+			this.Column2.HeaderText = "Tên Nước";
+			this.Column2.Name = "Column2";
+			// 
+			// Column1
+			// 
+			this.Column1.DataPropertyName = "Số lượng";
+			this.Column1.HeaderText = "Số lượng";
+			this.Column1.Name = "Column1";
+			// 
+			// Column3
+			// 
+			this.Column3.DataPropertyName = "Giá";
+			this.Column3.HeaderText = "Đơn Giá";
+			this.Column3.Name = "Column3";
+			// 
 			// FChuyenBan
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +314,7 @@
 			this.ClientSize = new System.Drawing.Size(785, 442);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "FChuyenBan";
-			this.Text = "FChuyenBan";
+			this.Text = "Chuyển bản/Tách bàn";
 			this.Load += new System.EventHandler(this.FChuyenBan_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.panel5.ResumeLayout(false);
@@ -317,17 +343,20 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView dtgBan1;
 		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.DataGridView dtgBan2;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
 	}
 }

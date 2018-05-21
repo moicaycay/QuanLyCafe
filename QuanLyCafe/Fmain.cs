@@ -13,18 +13,16 @@ namespace QuanLyCafe
 {
     public partial class Fmain : Form
     {
+		public string tk;
 		public int id;
 		CafeBLL cafebll = new CafeBLL();
-        public Fmain()
+        public Fmain(string tk)
         {
             InitializeComponent();
-			
+			this.tk = tk;
         }
 
-		private void panel1_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
+		
 
 		private void Fmain_FormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -83,15 +81,32 @@ namespace QuanLyCafe
 			{
 				dtgBillInfo.DataSource = cafebll.Select_BillInfo(mabill);
 			}
-			tbBan.Text = id.ToString();
+			label6.Text = "Bàn số: " + id.ToString();
 		}
 
 		private void btDathang_Click(object sender, EventArgs e)
 		{
-			cafebll.Insert_Bill(id);
+			cafebll.Insert_Bill(id,tk);
 			DataTable tam = cafebll.Select_Bill(id);
 			string nuoc = cbbNuoc.SelectedValue.ToString();
-			cafebll.Insert_BillInfo((int)tam.Rows[0][0], (int)cbbNuoc.SelectedValue, (int)numericUpDown1.Value);
+
+			if (dtgBillInfo.DataSource != null)
+			{
+				int kt = 0;
+				for (int i = 0; i < (dtgBillInfo.RowCount - 1); i++)
+				{
+					if (int.Parse(nuoc) == int.Parse(dtgBillInfo.Rows[i].Cells[1].Value.ToString()))
+					{
+						int soluong = int.Parse(dtgBillInfo.Rows[i].Cells[3].Value.ToString()) + (int)numericUpDown1.Value;
+						cafebll.Update_BillInfo(int.Parse(dtgBillInfo.Rows[i].Cells[0].Value.ToString()), soluong);
+						kt = 1;
+					}
+				}
+				if (kt == 0)
+					cafebll.Insert_BillInfo((int)tam.Rows[0][0], (int)cbbNuoc.SelectedValue, (int)numericUpDown1.Value);
+			}
+			else
+				cafebll.Insert_BillInfo((int)tam.Rows[0][0], (int)cbbNuoc.SelectedValue, (int)numericUpDown1.Value);
 			dtgBillInfo.DataSource = cafebll.Select_BillInfo((int)tam.Rows[0][0]);
 			//LoadBan();
 			foreach(Control C in flbBan.Controls)
@@ -104,7 +119,7 @@ namespace QuanLyCafe
 
 		private void btThanhtoan_Click(object sender, EventArgs e)
 		{
-			cafebll.ThanhToan_HD(cafebll.LoadMaBill(id));
+			cafebll.ThanhToan_HD(cafebll.LoadMaBill(id),float.Parse(tbTongTien.Text.ToString()));
 			DataTable tam = cafebll.Select_Bill(id);
 			dtgBillInfo.DataSource = null;
 			//LoadBan();
@@ -117,13 +132,13 @@ namespace QuanLyCafe
 
 		private void dtgBillInfo_DataSourceChanged(object sender, EventArgs e)
 		{
-			int tongtien = 0;
+			float tongtien = 0;
 			if (dtgBillInfo.DataSource != null)
 			{
 
 				for (int i = 0; i < (dtgBillInfo.RowCount-1); i++)
 				{
-					tongtien = int.Parse(dtgBillInfo.Rows[i].Cells[2].Value.ToString()) + tongtien;
+					tongtien = float.Parse(dtgBillInfo.Rows[i].Cells[3].Value.ToString())* int.Parse(dtgBillInfo.Rows[i].Cells[4].Value.ToString()) + tongtien;
 				}	
 			}
 			tbTongTien.Text = tongtien.ToString();
@@ -132,9 +147,11 @@ namespace QuanLyCafe
 		private void button1_Click(object sender, EventArgs e)
 		{
 			DataTable tam = cafebll.Select_Bill(id);
-			int mabill = (int)cafebll.Select_Bill(id).Rows[0][0];
+			int mabill = (int)cafebll.Select_Bill(id).Rows[1][0];
 			FChuyenBan fChuyenBan = new FChuyenBan(id,mabill, cafebll.Select_BillInfo((int)tam.Rows[0][0]));
 			fChuyenBan.Show();
 		}
+
+		
 	}
 }
