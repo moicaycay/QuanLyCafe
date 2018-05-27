@@ -164,7 +164,9 @@
             this.Column10});
 			this.dtgBan1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dtgBan1.Location = new System.Drawing.Point(0, 0);
+			this.dtgBan1.MultiSelect = false;
 			this.dtgBan1.Name = "dtgBan1";
+			this.dtgBan1.RowHeadersVisible = false;
 			this.dtgBan1.Size = new System.Drawing.Size(361, 356);
 			this.dtgBan1.TabIndex = 0;
 			// 
@@ -180,17 +182,19 @@
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(8, 158);
+			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.button3.Location = new System.Drawing.Point(8, 164);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(28, 23);
 			this.button3.TabIndex = 2;
-			this.button3.Text = ">>";
+			this.button3.Text = "<";
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(8, 129);
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(8, 135);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(28, 23);
 			this.button1.TabIndex = 0;
@@ -212,6 +216,7 @@
 			this.dtgBan2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dtgBan2.Location = new System.Drawing.Point(420, 43);
 			this.dtgBan2.Name = "dtgBan2";
+			this.dtgBan2.RowHeadersVisible = false;
 			this.dtgBan2.Size = new System.Drawing.Size(362, 356);
 			this.dtgBan2.TabIndex = 5;
 			// 
@@ -228,7 +233,7 @@
 			// button5
 			// 
 			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button5.Location = new System.Drawing.Point(163, 8);
+			this.button5.Location = new System.Drawing.Point(163, 6);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(75, 23);
 			this.button5.TabIndex = 1;
@@ -238,19 +243,19 @@
 			// button4
 			// 
 			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button4.Location = new System.Drawing.Point(278, 8);
+			this.button4.Location = new System.Drawing.Point(279, 5);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(75, 23);
 			this.button4.TabIndex = 0;
 			this.button4.Text = "Đồng ý";
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
 			// Column6
 			// 
 			this.Column6.DataPropertyName = "ID";
 			this.Column6.HeaderText = "ID";
 			this.Column6.Name = "Column6";
-			this.Column6.Visible = false;
 			// 
 			// Column7
 			// 
@@ -281,7 +286,6 @@
 			this.Column4.DataPropertyName = "ID";
 			this.Column4.HeaderText = "ID";
 			this.Column4.Name = "Column4";
-			this.Column4.Visible = false;
 			// 
 			// Column5
 			// 
