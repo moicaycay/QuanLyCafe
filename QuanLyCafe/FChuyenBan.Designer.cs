@@ -37,23 +37,23 @@
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.dtgBan1 = new System.Windows.Forms.DataGridView();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.dtgBan2 = new System.Windows.Forms.DataGridView();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
 			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.dtgBan2 = new System.Windows.Forms.DataGridView();
 			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.button5 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel5.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -170,6 +170,36 @@
 			this.dtgBan1.Size = new System.Drawing.Size(361, 356);
 			this.dtgBan1.TabIndex = 0;
 			// 
+			// Column6
+			// 
+			this.Column6.DataPropertyName = "ID";
+			this.Column6.HeaderText = "ID";
+			this.Column6.Name = "Column6";
+			// 
+			// Column7
+			// 
+			this.Column7.DataPropertyName = "Mã Nước";
+			this.Column7.HeaderText = "Mã Nước";
+			this.Column7.Name = "Column7";
+			// 
+			// Column8
+			// 
+			this.Column8.DataPropertyName = "Tên Nước";
+			this.Column8.HeaderText = "Tên Nước";
+			this.Column8.Name = "Column8";
+			// 
+			// Column9
+			// 
+			this.Column9.DataPropertyName = "Số lượng";
+			this.Column9.HeaderText = "Số lượng";
+			this.Column9.Name = "Column9";
+			// 
+			// Column10
+			// 
+			this.Column10.DataPropertyName = "Giá";
+			this.Column10.HeaderText = "Đơn giá";
+			this.Column10.Name = "Column10";
+			// 
 			// panel4
 			// 
 			this.panel4.Controls.Add(this.button3);
@@ -220,67 +250,6 @@
 			this.dtgBan2.Size = new System.Drawing.Size(362, 356);
 			this.dtgBan2.TabIndex = 5;
 			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.button5);
-			this.panel2.Controls.Add(this.button4);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(420, 405);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(362, 34);
-			this.panel2.TabIndex = 6;
-			// 
-			// button5
-			// 
-			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button5.Location = new System.Drawing.Point(163, 6);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(75, 23);
-			this.button5.TabIndex = 1;
-			this.button5.Text = "Bỏ qua";
-			this.button5.UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button4.Location = new System.Drawing.Point(279, 5);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(75, 23);
-			this.button4.TabIndex = 0;
-			this.button4.Text = "Đồng ý";
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.button4_Click);
-			// 
-			// Column6
-			// 
-			this.Column6.DataPropertyName = "ID";
-			this.Column6.HeaderText = "ID";
-			this.Column6.Name = "Column6";
-			// 
-			// Column7
-			// 
-			this.Column7.DataPropertyName = "Mã Nước";
-			this.Column7.HeaderText = "Mã Nước";
-			this.Column7.Name = "Column7";
-			// 
-			// Column8
-			// 
-			this.Column8.DataPropertyName = "Tên Nước";
-			this.Column8.HeaderText = "Tên Nước";
-			this.Column8.Name = "Column8";
-			// 
-			// Column9
-			// 
-			this.Column9.DataPropertyName = "Số lượng";
-			this.Column9.HeaderText = "Số lượng";
-			this.Column9.Name = "Column9";
-			// 
-			// Column10
-			// 
-			this.Column10.DataPropertyName = "Giá";
-			this.Column10.HeaderText = "Đơn giá";
-			this.Column10.Name = "Column10";
-			// 
 			// Column4
 			// 
 			this.Column4.DataPropertyName = "ID";
@@ -310,6 +279,38 @@
 			this.Column3.DataPropertyName = "Giá";
 			this.Column3.HeaderText = "Đơn Giá";
 			this.Column3.Name = "Column3";
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.button5);
+			this.panel2.Controls.Add(this.button4);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(420, 405);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(362, 34);
+			this.panel2.TabIndex = 6;
+			// 
+			// button5
+			// 
+			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button5.Location = new System.Drawing.Point(163, 6);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(75, 23);
+			this.button5.TabIndex = 1;
+			this.button5.Text = "Bỏ qua";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.button5_Click);
+			// 
+			// button4
+			// 
+			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button4.Location = new System.Drawing.Point(279, 5);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(75, 23);
+			this.button4.TabIndex = 0;
+			this.button4.Text = "Đồng ý";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
 			// FChuyenBan
 			// 

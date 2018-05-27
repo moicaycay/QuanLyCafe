@@ -217,5 +217,7 @@ namespace QuanLyCafe
 			fInHoaDon.Show();
 
 		}
+
+		
 	}
 }

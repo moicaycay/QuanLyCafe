@@ -99,6 +99,15 @@ namespace DAL
 			name[1] = "@soluong"; value[1] = soluong;
 			return thaotac.SQL_Thuchien("ud_BillInfo", name, value,2);
 		}
+		public int Update_BillInfo(int id,int mabill, int soluong)
+		{
+			name = new string[3];
+			value = new object[3];
+			name[0] = "@id"; value[0] = id;
+			name[1] = "@mabill"; value[1] = mabill;
+			name[2] = "@soluong"; value[2] = soluong;
+			return thaotac.SQL_Thuchien("ud_BillInfo1", name, value, 3);
+		}
 		public DataTable Select_LoaiDoUong()
 		{
 			return thaotac.SQL_Laydulieu("Select_LoaiDoUong");
@@ -252,5 +261,6 @@ namespace DAL
 			name[0] = "@chuoitim"; value[0] = chuoitim;
 			return thaotac.SQL_Laydulieu("tk_DoUong", name, value, 1);
 		}
+
 	}
 }

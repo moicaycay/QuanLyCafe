@@ -18,6 +18,7 @@ namespace QuanLyCafe
 		public int id;
 		public DataTable dtBan;
 		public int mabill;
+		int mabill1;
 		public FChuyenBan(int id,int mabill, DataTable dtBan)
 		{
 			this.id = id;
@@ -28,35 +29,37 @@ namespace QuanLyCafe
 		
 		private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			dtgBan2.DataSource = null;
-			DataTable dtban1 = new DataTable();
-			int mabill = 0;
+			dtgBan2.Rows.Clear();
+			
 			if (comboBox3.SelectedValue.ToString() != "System.Data.DataRowView")
 			{
-				if(cafebll.Select_Bill(int.Parse(comboBox3.SelectedValue.ToString())).Rows.Count >0)
-					mabill = (int)cafebll.Select_Bill(int.Parse(comboBox3.SelectedValue.ToString())).Rows[0][0];
-				if(mabill != 0)
-				dtban1 = cafebll.Select_BillInfo(mabill);
-			}
-			if (mabill != 0)
-			{
-				if (dtBan.Rows.Count > 0)
+				//if (cafebll.Select_Bill(int.Parse(comboBox3.SelectedValue.ToString())).Rows.Count >0)
+				//	mabill = (int)cafebll.Select_Bill(int.Parse(comboBox3.SelectedValue.ToString())).Rows[0][0];
+				//if(mabill != 0)
+				//dtban1 = cafebll.Select_BillInfo(mabill);
+				mabill1 = cafebll.LoadMaBill(int.Parse(comboBox3.SelectedValue.ToString()));
+				if (mabill1 != -1)
 				{
-					for (int i = 0; i < dtban1.Rows.Count; i++)
+					DataTable tam  = cafebll.Select_BillInfo(mabill1);
+					if (tam.Rows.Count > 0)
 					{
-						DataGridViewRow row = new DataGridViewRow();
-						for (int j = 0; j < 5; j++)
+						for (int i = 0; i < tam.Rows.Count; i++)
 						{
-							string tam = dtBan.Rows[i][j].ToString();
-							DataGridView dgv = new DataGridView();
-							DataGridViewCell dgvc = new DataGridViewTextBoxCell();
-							dgvc.Value = tam;
-							row.Cells.Add(dgvc);
+							DataGridViewRow row = new DataGridViewRow();
+							for (int j = 0; j < 5; j++)
+							{
+								string tam1 = tam.Rows[i][j].ToString();
+								DataGridView dgv = new DataGridView();
+								DataGridViewCell dgvc = new DataGridViewTextBoxCell();
+								dgvc.Value = tam1;
+								row.Cells.Add(dgvc);
+							}
+							dtgBan2.Rows.Add(row);
 						}
-						dtgBan2.Rows.Add(row);
 					}
 				}
 			}
+			
 		}
 
 		private void FChuyenBan_Load(object sender, EventArgs e)
@@ -145,8 +148,6 @@ namespace QuanLyCafe
 					ChuyenMon(dtgBan1,dtgBan2);
 			
 		}
-
-		
 		private void button3_Click(object sender, EventArgs e)
 		{
 			
@@ -156,7 +157,6 @@ namespace QuanLyCafe
 					ChuyenMon(dtgBan2, dtgBan1);
 			
 		}
-
 		private void button4_Click(object sender, EventArgs e)
 		{
 			for(int i =0; i < dtBan.Rows.Count; i++)
@@ -169,8 +169,17 @@ namespace QuanLyCafe
 			}
 			foreach (int tam in listdouong)
 				cafebll.Delete_Billinfo(tam);
+			for(int i =0; i< dtgBan2.RowCount-1; i++)
+			{
+				cafebll.Update_BillInfo(int.Parse(dtgBan2.Rows[i].Cells[0].Value.ToString()),mabill1,int.Parse(dtgBan2.Rows[i].Cells[3].Value.ToString()));
+			}
 			MessageBox.Show("Đã cập nhập hóa đơn bàn");
 			this.Close();
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			this.Close(); 
 		}
 	}
 }

@@ -36,6 +36,7 @@ namespace BLL
 		public int DoiTT_Ban(int maban, string tinhtrang) => cafeDAL.Tinhtrang_Ban(maban, tinhtrang);
 		public int ThanhToan_HD(int mabill,float tien) => cafeDAL.Thanhtoan_HD(mabill,tien);
 		public int Update_BillInfo(int id, int soluong) => cafeDAL.Update_BillInfo(id, soluong);
+		public int Update_BillInfo(int id,int mabill, int soluong) => cafeDAL.Update_BillInfo(id,mabill, soluong);
 		public DataTable Select_LoaiDoUong() => cafeDAL.Select_LoaiDoUong();
 		public DataTable TimKiem_DoUong(string tk) => cafeDAL.Timkiem_LoaiDoUong(tk);
 		public DataTable Select_DoUong(object maloai) => cafeDAL.select_DoUong(maloai);
