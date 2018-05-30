@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoUong));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tbTimKiem = new System.Windows.Forms.TextBox();
@@ -53,6 +54,8 @@
 			this.tbTenDoUong2 = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.dtgLoaiDoUong = new System.Windows.Forms.DataGridView();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dtgDoUong)).BeginInit();
@@ -73,6 +76,7 @@
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.button1);
 			this.tabPage1.Controls.Add(this.tbTimKiem);
 			this.tabPage1.Controls.Add(this.label5);
 			this.tabPage1.Controls.Add(this.btXoa);
@@ -103,6 +107,7 @@
 			this.tbTimKiem.Name = "tbTimKiem";
 			this.tbTimKiem.Size = new System.Drawing.Size(150, 20);
 			this.tbTimKiem.TabIndex = 13;
+			this.tbTimKiem.TextChanged += new System.EventHandler(this.tbTimKiem_TextChanged);
 			// 
 			// label5
 			// 
@@ -119,7 +124,7 @@
 			// 
 			this.btXoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btXoa.Location = new System.Drawing.Point(196, 68);
+			this.btXoa.Location = new System.Drawing.Point(250, 70);
 			this.btXoa.Name = "btXoa";
 			this.btXoa.Size = new System.Drawing.Size(75, 23);
 			this.btXoa.TabIndex = 11;
@@ -131,7 +136,7 @@
 			// 
 			this.btCapNhap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btCapNhap.Location = new System.Drawing.Point(115, 68);
+			this.btCapNhap.Location = new System.Drawing.Point(169, 70);
 			this.btCapNhap.Name = "btCapNhap";
 			this.btCapNhap.Size = new System.Drawing.Size(75, 23);
 			this.btCapNhap.TabIndex = 10;
@@ -143,9 +148,9 @@
 			// 
 			this.btThem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btThem.Location = new System.Drawing.Point(24, 68);
+			this.btThem.Location = new System.Drawing.Point(93, 70);
 			this.btThem.Name = "btThem";
-			this.btThem.Size = new System.Drawing.Size(85, 23);
+			this.btThem.Size = new System.Drawing.Size(70, 23);
 			this.btThem.TabIndex = 9;
 			this.btThem.Text = "Thêm";
 			this.btThem.UseVisualStyleBackColor = true;
@@ -246,6 +251,7 @@
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.button2);
 			this.tabPage2.Controls.Add(this.tbTimKiem2);
 			this.tabPage2.Controls.Add(this.label6);
 			this.tabPage2.Controls.Add(this.btXoa2);
@@ -270,6 +276,7 @@
 			this.tbTimKiem2.Name = "tbTimKiem2";
 			this.tbTimKiem2.Size = new System.Drawing.Size(159, 20);
 			this.tbTimKiem2.TabIndex = 27;
+			this.tbTimKiem2.TextChanged += new System.EventHandler(this.tbTimKiem2_TextChanged);
 			// 
 			// label6
 			// 
@@ -286,7 +293,7 @@
 			// 
 			this.btXoa2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btXoa2.Location = new System.Drawing.Point(186, 76);
+			this.btXoa2.Location = new System.Drawing.Point(256, 76);
 			this.btXoa2.Name = "btXoa2";
 			this.btXoa2.Size = new System.Drawing.Size(82, 23);
 			this.btXoa2.TabIndex = 25;
@@ -298,7 +305,7 @@
 			// 
 			this.btCapNhap2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btCapNhap2.Location = new System.Drawing.Point(105, 76);
+			this.btCapNhap2.Location = new System.Drawing.Point(175, 76);
 			this.btCapNhap2.Name = "btCapNhap2";
 			this.btCapNhap2.Size = new System.Drawing.Size(75, 23);
 			this.btCapNhap2.TabIndex = 24;
@@ -310,7 +317,7 @@
 			// 
 			this.btThem2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btThem2.Location = new System.Drawing.Point(33, 76);
+			this.btThem2.Location = new System.Drawing.Point(103, 76);
 			this.btThem2.Name = "btThem2";
 			this.btThem2.Size = new System.Drawing.Size(66, 23);
 			this.btThem2.TabIndex = 23;
@@ -350,14 +357,39 @@
 			this.dtgLoaiDoUong.TabIndex = 14;
 			this.dtgLoaiDoUong.SelectionChanged += new System.EventHandler(this.dtgLoaiDoUong_SelectionChanged);
 			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(24, 71);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(63, 23);
+			this.button1.TabIndex = 14;
+			this.button1.Text = "Tạo mới";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.button2.Location = new System.Drawing.Point(34, 76);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(63, 23);
+			this.button2.TabIndex = 28;
+			this.button2.Text = "Tạo mới";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// DoUong
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(569, 349);
 			this.Controls.Add(this.tabControl1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DoUong";
-			this.Text = "DoUong";
+			this.Text = "Đồ uống";
 			this.Load += new System.EventHandler(this.DoUong_Load);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
@@ -397,5 +429,7 @@
 		private System.Windows.Forms.TextBox tbTenDoUong2;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.DataGridView dtgLoaiDoUong;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }

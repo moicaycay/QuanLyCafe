@@ -36,3 +36,16 @@ F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\ShockwaveFlashObjects.dll
 F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\stdole.dll
 F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.InHoaDon.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.ToggleSwitch.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.Core.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\bin\Debug\MaterialSkin.dll
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.TaiKhoan.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.DoanhThuTheoNgay.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.ThongKeDoUong.resources
+F:\Documents\GitHub\QuanLyCafe\QuanLyCafe\obj\Debug\QuanLyCafe.DuBao.resources

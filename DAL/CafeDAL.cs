@@ -126,12 +126,13 @@ namespace DAL
 			name[0] = "@maloai"; value[0] = maloai;
 			return thaotac.SQL_Laydulieu("Select_DoUong_CTS1", name, value, 1);
 		}
-		public int is_Ban(string tenban)
+		public int is_Ban(int maban,string tenban)
 		{
-			name = new string[1];
-			value = new object[1];
-			name[0] = "@tenban"; value[0] = tenban;
-			return thaotac.SQL_Thuchien("is_Ban",name,value,1);
+			name = new string[2];
+			value = new object[2];
+			name[0] = "@maban"; value[0] = maban;
+			name[1] = "@tenban"; value[1] = tenban;
+			return thaotac.SQL_Thuchien("is_Ban",name,value,2);
 
 		}
 		public DataTable sl_MaBill()
@@ -261,6 +262,71 @@ namespace DAL
 			name[0] = "@chuoitim"; value[0] = chuoitim;
 			return thaotac.SQL_Laydulieu("tk_DoUong", name, value, 1);
 		}
+		public DataTable select_TaiKhoan()
+		{
+			return thaotac.SQL_Laydulieu("sl_user1");
+		}
+		public int insert_TaiKhoan(string tk, string mk, int quyen)
+		{
+			name = new string[3];
+			value = new object[3];
+			name[0] = "@taikhoan"; value[0] = tk;
+			name[1] = "@matkhau"; value[1] = mk;
+			name[2] = "@quyen"; value[2] = quyen;
+			return thaotac.SQL_Thuchien("is_user", name, value, 3);
+		}
+		public int update_TaiKhoan(string tk, string mk, int quyen)
+		{
+			name = new string[3];
+			value = new object[3];
+			name[0] = "@taikhoan"; value[0] = tk;
+			name[1] = "@matkhau"; value[1] = mk;
+			name[2] = "@quyen"; value[2] = quyen;
+			return thaotac.SQL_Thuchien("up_user", name, value, 3);
+		}
+		public int delete_TaiKhoan(string tk)
+		{
+			name = new string[1];
+			value = new object[1];
+			name[0] = "@taikhoan"; value[0] = tk;
+			
+			return thaotac.SQL_Thuchien("de_user", name, value, 1);
+		}
+		public DataTable TimKiem_TK(string tk)
+		{
+			name = new string[1];
+			value = new object[1];
+			name[0] = "@chuoitim"; value[0] = tk;
 
+			return thaotac.SQL_Laydulieu("tk_user", name, value, 1);
+		}
+		public DataTable TimKiem_DoUong1(string tk)
+		{
+			name = new string[1];
+			value = new object[1];
+			name[0] = "@chuoitim"; value[0] = tk;
+
+			return thaotac.SQL_Laydulieu("TimKiem_DoUong1", name, value, 1);
+		}
+		public DataTable TimKiem_LoaiDoUong1(string tk)
+		{
+			name = new string[1];
+			value = new object[1];
+			name[0] = "@chuoitim"; value[0] = tk;
+
+			return thaotac.SQL_Laydulieu("TimKiem_LoaiDoUong1", name, value, 1);
+		}
+		public int delete_Ban(int tk)
+		{
+			name = new string[1];
+			value = new object[1];
+			name[0] = "@maban"; value[0] = tk;
+
+			return thaotac.SQL_Thuchien("de_Ban", name, value, 1);
+		}
+		public DataTable doanhthu()
+		{
+			return thaotac.SQL_Laydulieu("sl_DoanhThu");
+		}
 	}
 }

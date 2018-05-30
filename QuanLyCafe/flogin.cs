@@ -26,18 +26,11 @@ namespace QuanLyCafe
 
 		private void btDangnhap_Click(object sender, EventArgs e)
 		{
-			string id = "";
-			DataTable dt = cafebll.Select_Dangnhap(textBox1.Text, textBox2.Text);
-			if (dt != null)
-			{
-				foreach (DataRow dr in dt.Rows)
-				{
-					id = dr["taikhoan"].ToString();
-				}
-			}
-			if (id != "")
-			{
-				Fmain fmain = new Fmain(cafebll.Select_Dangnhap(textBox1.Text, textBox2.Text).Rows[0][0].ToString());
+			
+			DataTable dt = cafebll.Select_Dangnhap(textbox1.Text, textbox2.Text);
+			if (dt.Rows.Count > 0)
+			{ 
+				Fmain fmain = new Fmain(dt.Rows[0][0].ToString(), int.Parse(dt.Rows[0][2].ToString()));
 				fmain.Show();
 				this.Hide();
 
@@ -46,6 +39,11 @@ namespace QuanLyCafe
 			{
 				MessageBox.Show("Tài khoản và mật khẩu không đúng !");
 			}
+
+		}
+
+		private void materialSingleLineTextField1_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

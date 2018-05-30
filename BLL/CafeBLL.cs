@@ -40,7 +40,7 @@ namespace BLL
 		public DataTable Select_LoaiDoUong() => cafeDAL.Select_LoaiDoUong();
 		public DataTable TimKiem_DoUong(string tk) => cafeDAL.Timkiem_LoaiDoUong(tk);
 		public DataTable Select_DoUong(object maloai) => cafeDAL.select_DoUong(maloai);
-		public int Is_Ban(string ban) => cafeDAL.is_Ban(ban);
+		public int Is_Ban(int maban,string ban) => cafeDAL.is_Ban(maban,ban);
 		public int MaBillTD()
 		{
 			DataTable tam = cafeDAL.sl_MaBill();
@@ -82,5 +82,14 @@ namespace BLL
 		public int Delete_LoaiDoUong(int maloai) => cafeDAL.Delete_LoaiDoUong(maloai);
 		public DataTable TK_LoaiDoUong(string tk) => cafeDAL.TK_LoaiDoUong(tk);
 		public DataTable tk_DoUong(string tk) => cafeDAL.TK_DoUong(tk);
+		public DataTable select_TaiKhoan() => cafeDAL.select_TaiKhoan();
+		public DataTable TimKiem_TaiKhoan(string tk) => cafeDAL.TimKiem_TK(tk);
+		public int insert_TaiKhoan(string tk, string mk, int quyen) => cafeDAL.insert_TaiKhoan(tk,mk,quyen);
+		public int update_TaiKhoan(string tk, string mk, int quyen) => cafeDAL.update_TaiKhoan(tk, mk, quyen);
+		public int delete_TaiKhoan(string tk) => cafeDAL.delete_TaiKhoan(tk);
+		public DataTable TimKiem_DoUong1(string tk) => cafeDAL.TimKiem_DoUong1(tk);
+		public DataTable TimKiem_LoaiDoUong1(string tk) => cafeDAL.TimKiem_LoaiDoUong1(tk);
+		public int Delete_Ban(int maban) => cafeDAL.delete_Ban(maban);
+		public DataTable select_DoanhThu() => cafeDAL.doanhthu();
 	}
 }

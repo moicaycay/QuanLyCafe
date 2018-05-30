@@ -31,14 +31,42 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\bill-128.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.ToggleSwitch">
+      <HintPath>..\..\..\..\Radio\Thang_5\Bunifu UI WinForms 1.5.5.2\Bunifu UI WinForms 1.5.5.2\Bunifu.UI.WinForms.ToggleSwitch.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.Net4.1.0.0\lib\net40\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -64,11 +92,35 @@
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DanhsachDoUong.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DanhsachDoUong.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DoanhThuTheoNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoanhThuTheoNgay.Designer.cs">
+      <DependentUpon>DoanhThuTheoNgay.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoUong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DoUong.Designer.cs">
       <DependentUpon>DoUong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DuBao.Designer.cs">
+      <DependentUpon>DuBao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuBaoDoanhThu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DuBaoDoanhThu.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="FChuyenBan.cs">
       <SubType>Form</SubType>
@@ -96,6 +148,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaiKhoan.Designer.cs">
+      <DependentUpon>TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeDoUong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeDoUong.Designer.cs">
+      <DependentUpon>ThongKeDoUong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thongketheodouong.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>thongketheodouong.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Thống kê theo ngày.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Thống kê theo ngày.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Ban.resx">
       <DependentUpon>Ban.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,8 +179,22 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhsachDoUong.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DanhsachDoUong.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoanhThuTheoNgay.resx">
+      <DependentUpon>DoanhThuTheoNgay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoUong.resx">
       <DependentUpon>DoUong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuBao.resx">
+      <DependentUpon>DuBao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuBaoDoanhThu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DuBaoDoanhThu.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FChuyenBan.resx">
       <DependentUpon>FChuyenBan.cs</DependentUpon>
@@ -126,7 +216,23 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TaiKhoan.resx">
+      <DependentUpon>TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeDoUong.resx">
+      <DependentUpon>ThongKeDoUong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thongketheodouong.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>thongketheodouong.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thống kê theo ngày.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Thống kê theo ngày.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,6 +254,51 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-login-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-58-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banknotes-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-3-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\khong_nguoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer-2-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase-order-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase-order-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sinchronize-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-mark-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill-128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee-5-128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table-128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

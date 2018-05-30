@@ -20,17 +20,28 @@ namespace QuanLyCafe
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			DialogResult key = MessageBox.Show("Bạn có muốn thêm bàn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			DialogResult key = MessageBox.Show("Bạn có muốn thực hiện không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (key == DialogResult.Yes)
 			{
 				try
 				{
-					for (int i = 0; i < int.Parse(textBox2.Text); i++)
+					if (tabControl1.SelectedIndex == 0)
 					{
-						string tenban = "Bàn " + (int.Parse(textBox1.Text)+i + 1).ToString();
-						cafebll.Is_Ban(tenban);
+						for (int i = 0; i < int.Parse(textBox2.Text); i++)
+						{
+							string tenban = "Bàn " + (int.Parse(textBox1.Text) + i + 1).ToString();
+							cafebll.Is_Ban(int.Parse(textBox1.Text) + i +1,tenban);
+						}
+						MessageBox.Show("Đã thêm xong bàn.");
 					}
-					MessageBox.Show("Đã thêm xong bàn.");
+					else
+					{
+						for (int i = 0; i < int.Parse(tbXoa.Text); i++)
+						{
+							cafebll.Delete_Ban(int.Parse(textBox1.Text) - i);
+						}
+						MessageBox.Show("Đã xóa xong bàn.");
+					}
 					
 				}
 

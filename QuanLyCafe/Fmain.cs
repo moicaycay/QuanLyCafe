@@ -14,12 +14,14 @@ namespace QuanLyCafe
     public partial class Fmain : Form
     {
 		public string tk;
+		public int quyen;
 		public int id;
 		CafeBLL cafebll = new CafeBLL();
-        public Fmain(string tk)
+        public Fmain(string tk, int quyen)
         {
             InitializeComponent();
 			this.tk = tk;
+			this.quyen = quyen;
         }
 		public Fmain()
 		{
@@ -47,7 +49,7 @@ namespace QuanLyCafe
 				btn.Size = new Size(50, 50);
 				if (tinhtrang == "True")
 				{
-					btn.BackColor = Color.Aqua;
+					btn.BackColor = Color.Aquamarine;
 					btn.Text = "Bàn" + (i + 1).ToString() ;
 				}
 				else
@@ -64,9 +66,11 @@ namespace QuanLyCafe
 			cbbLoaiDoUong.DataSource = cafebll.Select_LoaiDoUong();
 			cbbLoaiDoUong.DisplayMember = "TenLoai";
 			cbbLoaiDoUong.ValueMember = "MaLoai";
-			//dtgNuocUong.DataSource = cafebll.Select_DoUong(1);
 			LoadBan();
-			
+			if (quyen != 1)
+			{
+				menuStrip1.Enabled = false;
+			}
 		}
 		
 		private void Btn_Click(object sender, EventArgs e)
@@ -92,90 +96,131 @@ namespace QuanLyCafe
 
 		private void btDathang_Click(object sender, EventArgs e)
 		{
-
-			int mabill = cafebll.LoadMaBill(id);
-			DataTable tam = cafebll.Select_Bill(id);
-			string nuoc = dtgNuocUong[0, dtgNuocUong.CurrentRow.Index].Value.ToString();
-
-			if (dtgBillInfo.DataSource != null)
+			
+			try
 			{
-				int kt = 0;
-				for (int i = 0; i < (dtgBillInfo.RowCount - 1); i++)
+				int mabill = cafebll.LoadMaBill(id);
+				DataTable tam = cafebll.Select_Bill(id);
+				string nuoc = dtgNuocUong[0, dtgNuocUong.CurrentRow.Index].Value.ToString();
+
+				if (dtgBillInfo.DataSource != null)
 				{
-					if (int.Parse(nuoc) == int.Parse(dtgBillInfo.Rows[i].Cells[1].Value.ToString()))
+					int kt = 0;
+					for (int i = 0; i < (dtgBillInfo.RowCount - 1); i++)
 					{
-						int soluong = int.Parse(dtgBillInfo.Rows[i].Cells[3].Value.ToString()) + (int)numericUpDown1.Value;
-						cafebll.Update_BillInfo(int.Parse(dtgBillInfo.Rows[i].Cells[0].Value.ToString()), soluong);
-						kt = 1;
+						if (int.Parse(nuoc) == int.Parse(dtgBillInfo.Rows[i].Cells[1].Value.ToString()))
+						{
+							int soluong = int.Parse(dtgBillInfo.Rows[i].Cells[3].Value.ToString()) + (int)numericUpDown1.Value;
+							cafebll.Update_BillInfo(int.Parse(dtgBillInfo.Rows[i].Cells[0].Value.ToString()), soluong);
+							kt = 1;
+						}
+					}
+					if (kt == 0)
+					{
+						int mabillinfo = cafebll.MaBillInfoTD();
+						cafebll.Ud_MabillInfoTD(mabillinfo + 1);
+						cafebll.Insert_BillInfo(mabillinfo, int.Parse(tam.Rows[0][0].ToString()), int.Parse(nuoc), (int)numericUpDown1.Value);
+
 					}
 				}
-				if (kt == 0)
+				else
 				{
+					mabill = cafebll.MaBillTD();
+					cafebll.Ud_MabillTD(mabill + 1);
+					cafebll.Insert_Bill(mabill, id, tk);
 					int mabillinfo = cafebll.MaBillInfoTD();
 					cafebll.Ud_MabillInfoTD(mabillinfo + 1);
-					cafebll.Insert_BillInfo(mabillinfo, int.Parse(tam.Rows[0][0].ToString()), int.Parse(nuoc), (int)numericUpDown1.Value);
-					
+					cafebll.Insert_BillInfo(mabillinfo, mabill, int.Parse(nuoc), (int)numericUpDown1.Value);
+
+				}
+				dtgBillInfo.DataSource = cafebll.Select_BillInfo(mabill);
+				//LoadBan();
+				foreach (Control C in flbBan.Controls)
+				{
+					if (int.Parse(((Button)C).Tag.ToString()) == id)
+						((Button)C).BackColor = Color.Yellow;
 				}
 			}
-			else
+			catch (Exception LOI)
 			{
-				mabill = cafebll.MaBillTD();
-				cafebll.Ud_MabillTD(mabill + 1);
-				cafebll.Insert_Bill(mabill, id, tk);
-				int mabillinfo = cafebll.MaBillInfoTD();
-				cafebll.Ud_MabillInfoTD(mabillinfo + 1);
-				cafebll.Insert_BillInfo(mabillinfo, mabill, int.Parse(nuoc), (int)numericUpDown1.Value);
-				
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-				dtgBillInfo.DataSource = cafebll.Select_BillInfo(mabill);
-			//LoadBan();
-			foreach(Control C in flbBan.Controls)
-			{
-				if (int.Parse(((Button)C).Tag.ToString()) == id)
-					((Button)C).BackColor = Color.Yellow;
-			}
-			
+
 		}
 
 		private void btThanhtoan_Click(object sender, EventArgs e)
 		{
-			cafebll.ThanhToan_HD(cafebll.LoadMaBill(id),float.Parse(tbTienPhaiTra.Text.ToString()));
-			DataTable tam = cafebll.Select_Bill(id);
-			dtgBillInfo.DataSource = null;
-			//LoadBan();
-			foreach (Control C in flbBan.Controls)
+			try
 			{
-				if (int.Parse(((Button)C).Tag.ToString()) == id)
-					((Button)C).BackColor = Color.Aqua;
+				DialogResult key = MessageBox.Show("Bạn có muốn in hóa đơn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (key == DialogResult.Yes)
+				{
+					InHD_Click(sender, e);
+				}
+				cafebll.ThanhToan_HD(cafebll.LoadMaBill(id), float.Parse(tbTienPhaiTra.Text.ToString()));
+				DataTable tam = cafebll.Select_Bill(id);
+				dtgBillInfo.DataSource = null;
+				//LoadBan();
+				foreach (Control C in flbBan.Controls)
+				{
+					if (int.Parse(((Button)C).Tag.ToString()) == id)
+						((Button)C).BackColor = Color.Aquamarine;
+				}
+				tbKhuyenMai.Text = "0";
+				
 			}
-			tbKhuyenMai.Text = "0";
+			catch (Exception LOI)
+			{
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void dtgBillInfo_DataSourceChanged(object sender, EventArgs e)
 		{
-			float tongtien = 0;
-			if (dtgBillInfo.DataSource != null)
+			try
 			{
-
-				for (int i = 0; i < (dtgBillInfo.RowCount-1); i++)
+				float tongtien = 0;
+				if (dtgBillInfo.DataSource != null)
 				{
-					tongtien = float.Parse(dtgBillInfo.Rows[i].Cells[3].Value.ToString())* int.Parse(dtgBillInfo.Rows[i].Cells[4].Value.ToString()) + tongtien;
-				}	
+
+					for (int i = 0; i < (dtgBillInfo.RowCount - 1); i++)
+					{
+						tongtien = float.Parse(dtgBillInfo.Rows[i].Cells[3].Value.ToString()) * int.Parse(dtgBillInfo.Rows[i].Cells[4].Value.ToString()) + tongtien;
+					}
+				}
+				tbTongTien.Text = tongtien.ToString();
 			}
-			tbTongTien.Text = tongtien.ToString();
+			catch (Exception LOI)
+			{
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 		
 		private void button1_Click(object sender, EventArgs e)
 		{
-			DataTable tam = cafebll.Select_Bill(id);
-			int mabill = (int)cafebll.Select_Bill(id).Rows[0][0];
-			FChuyenBan fChuyenBan = new FChuyenBan(id,mabill, cafebll.Select_BillInfo((int)tam.Rows[0][0]));
-			fChuyenBan.Show();
+			try
+			{
+				DataTable tam = cafebll.Select_Bill(id);
+				int mabill = (int)cafebll.Select_Bill(id).Rows[0][0];
+				FChuyenBan fChuyenBan = new FChuyenBan(id, mabill, cafebll.Select_BillInfo((int)tam.Rows[0][0]));
+				fChuyenBan.Show();
+			}
+			catch (Exception LOI)
+			{
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 		
 		private void tbTimMon_TextChanged(object sender, EventArgs e)
 		{
-			dtgNuocUong.DataSource = cafebll.TimKiem_DoUong(tbTimMon.Text);
+			try
+			{
+				dtgNuocUong.DataSource = cafebll.TimKiem_DoUong(tbTimMon.Text);
+			}
+			catch (Exception LOI)
+			{
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void cbbLoaiDoUong_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,6 +263,82 @@ namespace QuanLyCafe
 
 		}
 
-		
+		private void btXoaBillInfo_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				cafebll.Delete_Billinfo(int.Parse(dtgBillInfo[0, dtgBillInfo.CurrentRow.Index].Value.ToString()));
+				int mabill = cafebll.LoadMaBill(id);
+				dtgBillInfo.DataSource = cafebll.Select_BillInfo(mabill);
+			}
+			catch (Exception LOI)
+			{
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void btSuaBillInfo_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				cafebll.Update_BillInfo(int.Parse(dtgBillInfo[0, dtgBillInfo.CurrentRow.Index].Value.ToString()), int.Parse(dtgBillInfo[3, dtgBillInfo.CurrentRow.Index].Value.ToString()));
+				int mabill = cafebll.LoadMaBill(id);
+				dtgBillInfo.DataSource = cafebll.Select_BillInfo(mabill);
+			}
+			catch (Exception LOI)
+			{
+				MessageBox.Show(LOI.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+			TaiKhoan taiKhoan = new TaiKhoan();
+			taiKhoan.Show();
+		}
+
+		private void doanhThuTheoNgàyToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			DoanhThuTheoNgay doanhThu = new DoanhThuTheoNgay();
+			doanhThu.Show();
+		}
+
+		private void doanhThuTheoĐồUốngToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			ThongKeDoUong thongKeDoUong = new ThongKeDoUong();
+			thongKeDoUong.Show();
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label9_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panel5_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void dựBáoDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			DuBao dubao = new DuBao();
+			dubao.Show();
+		}
 	}
 }
